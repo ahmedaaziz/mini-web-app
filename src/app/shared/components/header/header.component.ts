@@ -8,23 +8,18 @@ import { AuthService } from "../../services/auth/auth.service";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  public isLogged:boolean = false;
-  constructor(private auth:AuthService,private router:Router) { }
+   isLogged:boolean = true;
+  constructor(private auth:AuthService,private router:Router) {
+  }
 
   ngOnInit(): void {
-    this.status();
   }
   logOut(){
     this.auth.clearLocalStorage();
     this.isLogged = false;
+    console.log(this.isLogged);
+    this.router.navigate(['login']);
+  }
 
-  }
-  status(){
-    if(this.auth.isLogged == true) {
-      this.isLogged = true;
-    } else {
-      this.isLogged = false;
-      this.router.navigate(['login']);
-    }
-  }
+
 }

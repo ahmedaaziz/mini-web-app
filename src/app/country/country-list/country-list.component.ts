@@ -20,7 +20,7 @@ export class CountryListComponent implements OnInit {
     this.apiService.getCountries()
     .subscribe(
       res => {
-        console.log('Response ', res)
+        // console.log('Response ', res)
         this.countryList = res;
       },
       error => {
@@ -33,7 +33,7 @@ export class CountryListComponent implements OnInit {
         }
       },
       ()=> {
-        console.log('Complete');
+        // console.log('Complete');
       }
     );
   }
@@ -42,7 +42,7 @@ export class CountryListComponent implements OnInit {
     this.apiService.removeCountry(id)
     .subscribe(
       res => {
-        console.log(res);
+        // console.log(res);
       }
     )
   }

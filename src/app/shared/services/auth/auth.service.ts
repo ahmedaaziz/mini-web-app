@@ -17,21 +17,16 @@ export class AuthService {
 
     }
 
-  // login(data:any):Observable<any>{
-  //   return this.http.post(this.url,data);
-  // }
-
-  login(data:any){
+  login(data:any):Observable<any>{
     return this.apiService.login(data).pipe(
       tap((response:any) => {
-        localStorage.setItem('user_token',response.token)
+        localStorage.setItem('user_token',response.token);
       })
     )
   }
 
   clearLocalStorage(){
     localStorage.removeItem('user_token');
-
   }
 
  get isLogged():boolean{
