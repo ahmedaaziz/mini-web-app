@@ -31,18 +31,7 @@ export class LoginComponent implements OnInit {
 
       })
     }
-    // if(loginForm.valid) {
-    //   this._auth.login(loginForm.value).subscribe(
-    //     res => {
-    //       console.log(res)
-    //       localStorage.setItem('token ', res.token)
-    //       // localStorage.setItem('userInfo',JSON.stringify(loginForm.value))
-    //       loginForm.reset();
-    //       this._router.navigate(['/'])
-    //     },
-    //     err => console.log(err)
-    //   )
-    // }
+
   }
 
 

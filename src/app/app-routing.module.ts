@@ -4,10 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddCityComponent } from "./city/add-city/add-city.component";
 import { AddCountryComponent } from "./country/add-country/add-country.component";
 import { EditCountryComponent } from "./country/edit-country/edit-country.component";
-import { AuthGuard } from "./guards/auth.guard";
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
 import { EditCityComponent } from "./city/edit-city/edit-city.component";
+import { AuthGuard } from "./auth.guard";
 
 const routes: Routes = [
   // {
@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path:'',
     component:HomeComponent,
-    // canActivate:[AuthGuard]
+    canActivate:[AuthGuard]
   },
   {
     path:'login',

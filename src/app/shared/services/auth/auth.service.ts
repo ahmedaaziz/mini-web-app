@@ -9,6 +9,7 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
   url:string = 'https://taskfrontendapi.azurewebsites.net/api/user/login';
+  user:boolean = false;
 
   constructor(private http:HttpClient,
     private apiService:ApiServiceService) {
@@ -26,6 +27,22 @@ export class AuthService {
         localStorage.setItem('user_token',response.token)
       })
     )
+  }
+
+  clearLocalStorage(){
+    localStorage.removeItem('user_token');
+
+  }
+
+ get isLogged():boolean{
+    if(localStorage.getItem('user_token')){
+      this.user = true;
+      return true;
+    } else {
+      this.user = false;
+      return false;
+    }
+
   }
 
 }

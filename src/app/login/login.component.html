@@ -1,16 +1,24 @@
 <div class="row">
-  <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10 mx-auto py-5">
-    <h2>User Login <i class="fa fa-user-alt"></i></h2>
+  <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto py-5">
     <!-- <hr> -->
-    <div class="alert alert-primary" *ngIf='!loginForm.valid'>
+    <div class="alert alert-primary" *ngIf='!loginForm.valid && loginForm.touched'>
       <p class="m-0">
         Please Log in , to use the web app
       </p>
     </div>
     <form class="border p-4 my-3"
+
       #loginForm="ngForm"
       (ngSubmit)='onSubmit(loginForm)'>
       <!-- {{loginForm.value | json }} -->
+      <div class="text-center">
+        <h1>
+          <i class="fa fa-lock"></i>
+        </h1>
+        <h2>Welcome </h2>
+
+      </div>
+      <hr>
       <div class="form-group">
         <label for="email">Email address</label>
 
