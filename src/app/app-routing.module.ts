@@ -7,6 +7,7 @@ import { EditCountryComponent } from "./country/edit-country/edit-country.compon
 import { AuthGuard } from "./guards/auth.guard";
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
+import { EditCityComponent } from "./city/edit-city/edit-city.component";
 
 const routes: Routes = [
   // {
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path:'add-city',
     component:AddCityComponent
+  },
+  {
+    path:'edit-city/:id',
+    component:EditCityComponent
   }
 
 ];

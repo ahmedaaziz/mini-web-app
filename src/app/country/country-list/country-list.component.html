@@ -1,10 +1,6 @@
-<div class="alert alert-danger my-3 p-4" *ngIf="showLoginMsg">
-  <p class="m-0">
-     Please Login again to be able to see country list <i class="fa fa-user"></i>
-  </p>
-</div>
+<app-login-alert  *ngIf="showLoginMsg"></app-login-alert>
 
-<div class="mt-4" [class.d-none]='showLoginMsg'>
+<div class="mt-4" >
   <div class="head d-flex justify-content-between my-3 ">
     <h4 class="lead">Country List </h4>
     <div class="button">
@@ -14,9 +10,9 @@
     </div>
   </div>
 
-  <table class="table table-hover text-center border">
+  <table class="table table-hover text-center  border">
     <thead>
-        <tr class="thead-dark">
+        <tr class="thead-dark ">
             <th scope="col">Country ID</th>
             <th scope="col">Country</th>
             <th scope="col">Actions</th>
@@ -29,7 +25,7 @@
             error'>{{error}}</td> -->
         </tr>
             <tr *ngFor="let country of countryList ">
-                <th scope="row">{{country.id}}</th>
+                <th scope="row" >{{country.id}}</th>
                 <td>{{country.name}}</td>
                 <th>
                   <button

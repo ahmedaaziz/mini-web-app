@@ -14,6 +14,9 @@ import { CountryListComponent } from './country/country-list/country-list.compon
 import { AuthInterceptor, AuthInterceptorProvider } from "./shared/interceptors/auth.interceptor";
 import { HeaderComponent } from './shared/components/header/header.component';
 import { AddCityComponent } from './city/add-city/add-city.component';
+import { LoginAlertComponent } from './shared/components/login-alert/login-alert.component';
+import { InvalidAlertComponent } from './shared/components/invalid-alert/invalid-alert.component';
+import { EditCityComponent } from './city/edit-city/edit-city.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { AddCityComponent } from './city/add-city/add-city.component';
     CountryListComponent,
     HeaderComponent,
     AddCityComponent,
-    ViewCountryComponent
+    ViewCountryComponent,
+    LoginAlertComponent,
+    InvalidAlertComponent,
+    EditCityComponent
   ],
   imports: [
     BrowserModule,

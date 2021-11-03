@@ -12,6 +12,8 @@ export class ApiServiceService {
   countries_url:string = 'https://taskfrontendapi.azurewebsites.net/api/country';
   countryUrl:string = 'https://taskfrontendapi.azurewebsites.net/api/country';
   citiesUrlByCountry:string = 'https://taskfrontendapi.azurewebsites.net/api/city/getcities/';
+
+  cities_url:string = 'https://taskfrontendapi.azurewebsites.net/api/city';
   constructor(private _http:HttpClient) { }
 
   login(data:any):Observable<any>{
@@ -43,10 +45,22 @@ export class ApiServiceService {
   }
 
   addCity(data:any){
-
+    return this._http.post(this.cities_url,data)
   }
 
   loadCities(id:number):Observable<any>{
     return this._http.get(`${this.citiesUrlByCountry}/${id}`);
   }
+
+  getCurrentCity(id:number):Observable<any>{
+    return this._http.get(`${this.cities_url}/${id}`)
+  }
+  updateCity(id:number,data:any):Observable<any>{
+    return this._http.put(`${this.cities_url}/${id}`,data)
+  }
+
+  removeCity(id:number):Observable<any>{
+    return this._http.delete(`${this.cities_url}/${id}`);
+  }
+
 }

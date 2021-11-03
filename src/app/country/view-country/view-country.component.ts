@@ -11,6 +11,8 @@ import { ApiServiceService } from "src/app/shared/services/ApiService/api-servic
 export class ViewCountryComponent implements OnInit {
   cities:any[] = [];
   country:any[] = [];
+  noCitiesAddedYet:boolean = true;
+  countryName:string = '';
   constructor(private apiService:ApiServiceService,
               private router:ActivatedRoute) { }
 
@@ -21,14 +23,31 @@ export class ViewCountryComponent implements OnInit {
     this.apiService.loadCities(this.router.snapshot.params.id)
     .subscribe(
       res => {
-        console.log(res);
-        this.cities = res;
-        let country = this.cities.map(({ country }) => country)
-        console.log(country);
-        console.log(country);
-        this.country = country;
+        if(!res.length) {
+          this.noCitiesAddedYet = true;
+        } else {
+          this.noCitiesAddedYet = false;
+          console.log(res);
+          this.cities = res;
+          // let country = this.cities.map(({ country }) => country)
+          // console.log(country);
+        }
 
       }
     )
   }
+
+  removeCity(id:number){
+    this.apiService.removeCity(id)
+    .subscribe(
+      res=>{
+        console.log(res);
+        this.ngOnInit();
+      }
+    )
+
+  }
+
+
+
 }
