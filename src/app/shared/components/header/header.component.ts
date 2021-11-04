@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnChanges,SimpleChanges} from '@angular/core';
 import { AuthService } from "../../services/auth/auth.service";
 
 @Component({
@@ -8,11 +8,18 @@ import { AuthService } from "../../services/auth/auth.service";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-   isLogged:boolean = true;
+   isLogged:boolean = false;
   constructor(private auth:AuthService,private router:Router) {
   }
 
   ngOnInit(): void {
+    this.checkStatus();
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+    //Add '${implements OnChanges}' to the class.
+    this.checkStatus()
+
   }
   logOut(){
     this.auth.clearLocalStorage();
@@ -21,5 +28,9 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
-
+  checkStatus(){
+    if(this.auth.isLogged === true) {
+      this.isLogged = true
+    }
+  }
 }

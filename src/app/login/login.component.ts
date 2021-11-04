@@ -14,12 +14,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   onSubmit(loginForm:any){
-
-    // console.log(loginForm.value);
-    // console.log(loginForm.value.email);
-    // console.log(loginForm.value.password);
     if(loginForm.invalid) {
       return;
     } else {
